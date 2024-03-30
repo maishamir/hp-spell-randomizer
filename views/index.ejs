@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WandAndCouldron</title>
+  </head>
+  <body>
+    <% if (locals.spellName) { %>
+    <div class="card">
+      <h1><%=spellName%></h1>
+      <img src="<%=image%>" alt="" />
+      <p><%=incantation%></p>
+      <p><%=spellEffect%></p>
+      <% if (movement !== null) { %>
+        <p><%=movement%></p>
+      <% } %>
+    </div>
+    <% } else { %>
+    <h1>✨ Spells and potions coming soon ✨</h1>
+    <% } %>
+  </body>
+</html>
