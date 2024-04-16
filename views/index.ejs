@@ -3,21 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/960b2a752e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
     <title>WandAndCouldron</title>
   </head>
   <body>
     <% if (locals.spellName) { %>
     <div class="card">
-      <h1><%=spellName%></h1>
-      <img src="<%=image%>" alt="" />
-      <p><%=incantation%></p>
-      <p><%=spellEffect%></p>
-      <% if (movement !== null) { %>
-        <p><%=movement%></p>
-      <% } %>
+      <div class="content">
+        <% if (image !== null) { %>
+        <img class="spellImage" src="<%=image%>" alt="spell image" />
+        <% } else { %>
+        <img
+          class="spellImage"
+          src="Default spell image.webp"
+          alt="spell image"
+        />
+        <% } %>
+        <h2 class="spellName"><%=spellName%></h2>
+        <p class="spellEffect"><%=spellEffect%></p>
+
+        <div class="spellInfo">
+          <div class="spellCategory">
+            <i class="fa-solid fa-wand-sparkles wand"></i>
+            <p class="category"><%-category.split(', ').join('<br />')%></p>
+          </div>
+          <div class="spellLight">
+            <i class="fa-solid fa-palette color"></i>
+            <% if (color !== null) {%>
+            <p></p>
+            <p><%=color%></p>
+            <% } else { %>
+            <p>None</p>
+            <% } %>
+          </div>
+        </div>
+        <hr />
+        <div class="spellIncantation">
+          <i class="fa-solid fa-scroll scroll"></i>
+          <% if (incantation !== null && incantation !== "unknown") { %>
+          <p><%-incantation.split(', ').join('<br />')%></p>
+          <% } else { %>
+          <p>Unknown incantation</p>
+          <% } %>
+        </div>
+      </div>
     </div>
-    <% } else { %>
-    <h1>✨ Spells and potions coming soon ✨</h1>
+
+    <button class="generate">Generate New Spell</button>
     <% } %>
+    
+  <script src="script.js"></script>
   </body>
 </html>

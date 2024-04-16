@@ -1,0 +1,202 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.15rem;
+  position: relative;
+  background-image: url("hp background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  color: white;
+  perspective: 1000px;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card {
+  user-select: none;
+  width: 330px;
+  max-width: 500px;
+  position: relative;
+  background: hsla(45, 35%, 66%, 1);
+  background: linear-gradient(
+    180deg,
+    rgba(199, 183, 138, 0.4) 0%,
+    rgba(106, 160, 175, 0.5) 100%
+  );
+  backdrop-filter: blur(3px);
+  border-radius: 1rem;
+  filter: contrast(120%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.681);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 7px 50px 10px #000000aa;
+  filter: brightness(0.9);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 50%,
+    rgba(255, 255, 255, 0.03) 58%,
+    rgba(255, 255, 255, 0.16) 67%,
+    transparent 68%
+  );
+  top: 0;
+  left: 0;
+  background-size: 400% 400%;
+  background-position: 100% 0;
+  transition: 0.7s;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.card:hover::after {
+  background-position: -100% 0;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  z-index: -2;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding: 1rem;
+}
+
+.spellImage {
+  border-radius: 0.5rem;
+  max-width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.spellName {
+  color: rgba(244, 231, 159, 0.9777);
+  font-family: "Elsie", serif;
+  font-weight: 500;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  word-wrap: break-word;
+
+}
+
+.spellEffect {
+  color: #fbfbf5;
+}
+
+.spellInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spellCategory {
+  display: flex;
+  align-items: center;
+  color: #27606f;
+  font-weight: 700;
+}
+
+.wand {
+  margin-left: -0.3rem;
+  margin-right: 0.5rem;
+}
+
+.spellLight {
+  display: flex;
+  align-items: center;
+  color: #fbfbf5;
+  margin-right: 0.2rem;
+}
+
+.color {
+  margin: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+hr {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #88888855;
+}
+
+.spellIncantation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 0.2rem;
+  margin-bottom: -0.3rem;
+  color: #fbfbf5;
+}
+
+.scroll {
+  color: #27606f;
+  margin-right: 0.5rem;
+  margin-left: -0.3rem;
+}
+
+.generate {
+    font-family: sans-serif;
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    color: #27606f;
+    transform: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+}
+
+.generate:hover {
+background: rgba(255, 255, 255, 0.8A)
+    ;
+    transform: translateY(-5px);
+
+}
+
