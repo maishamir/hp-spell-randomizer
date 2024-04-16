@@ -2,7 +2,7 @@ import express from "express"
 import bodyParser from "body-parser";
 import axios from "axios"
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 3000;
 const URL = "https://api.potterdb.com"
 
 app.use(express.static('public'))
